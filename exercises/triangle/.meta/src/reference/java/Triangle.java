@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,7 +42,13 @@ class Triangle {
     }
 
     private boolean violatesTriangleInequality() {
-        return side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1;
+        BigDecimal bdSide1 = BigDecimal.valueOf(side1);
+        BigDecimal bdSide2 = BigDecimal.valueOf(side2);
+        BigDecimal bdSide3 = BigDecimal.valueOf(side3);
+
+        return bdSide1.add(bdSide2).compareTo(bdSide3) <= 0 ||
+            bdSide1.add(bdSide3).compareTo(bdSide2) <= 0 ||
+            bdSide2.add(bdSide3).compareTo(bdSide1) <= 0;
     }
 
     private int getNumberOfUniqueSides() {

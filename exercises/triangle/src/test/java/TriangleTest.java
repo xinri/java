@@ -157,4 +157,12 @@ public class TriangleTest {
 
         assertTrue(triangle.isScalene());
     }
+
+    @Ignore("Remove to run test")
+    @Test
+    public void extremelySmallTriangleCanBeScalene() throws TriangleException {
+        Triangle triangle = new Triangle(0.18, 0.16, 0.33999999999999999);
+
+        assertTrue(triangle.isScalene());
+    }
 }
